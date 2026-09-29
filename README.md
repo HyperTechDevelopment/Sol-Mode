@@ -1,5 +1,8 @@
 # Sol Mode
 
+<img width="2400" height="1792" alt="Sol mode" src="https://github.com/user-attachments/assets/8b74f1fe-c6e5-4af2-8aae-199b313bfa3c" />
+
+
 A working method for agents that must carry a task from request to verified result, with progress the user can follow and evidence behind every claim.
 
 ## What it changes
