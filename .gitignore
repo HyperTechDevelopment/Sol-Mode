@@ -1,0 +1,13 @@
+# Harness indexes and working state: never published.
+.codegraph/
+.omo/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
