@@ -16,4 +16,4 @@ Run the Default loop on an interface task: web pages, desktop windows, dialogs, 
 
 ## Detection
 
-A mode is named when it appears as the first word after the skill reference, for example `/sol-mode audit`, `sol-mode plan <task>`, `sol-mode ui <task>`. Without a named mode, Default runs the full behavior on the task.
+A mode is named when it appears as the first word after the skill reference, for example `/sol-mode audit`, `sol-mode plan <task>`, `sol-mode ui <task>`. Without a named mode, Default runs the full behavior on the task. Quoting the task or naming Default first keeps a leading plan, audit, or ui as task text: `sol-mode "plan the garden"`, `sol-mode Default plan the garden`.
