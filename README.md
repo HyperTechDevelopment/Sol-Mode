@@ -1,6 +1,6 @@
 # Sol Mode
 
-<img width="2400" height="1792" alt="Sol mode" src="https://github.com/user-attachments/assets/8b74f1fe-c6e5-4af2-8aae-199b313bfa3c" />
+<img width="2752" height="1536" alt="Gemini_Generated_Image_7xixip7xixip7xix" src="https://github.com/user-attachments/assets/d1f227e7-0580-4554-9cc4-0dc16f6a2481" />
 
 
 A working method for agents that must carry a task from request to verified result, with progress the user can follow and evidence behind every claim.
