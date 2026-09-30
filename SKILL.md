@@ -1,6 +1,6 @@
 ---
 name: sol-mode
-description: Use this skill when a multi-step task must be carried to a verified result with progress the user can follow. It governs scoping, evidence gathering, permission, surgical editing, verification by observation, research, and outcome-first reporting. Includes namespace blocks for design, data, DevOps, finance, legal, marketing, operations, and research, three modes (Plan, Audit, UI), and a structure verifier script. Triggers include /sol-mode, "sol mode", and "modo sol".
+description: Use this skill when the user references sol-mode explicitly, or when multi-step work has no task-specific skill attached. It supplies loop, verification by observation and outcome-first reporting, leaving domain nouns to the task-specific skill when one applies. Triggers include /sol-mode, "sol mode", and "modo sol".
 license: MIT
 version: 1.0.0
 ---
@@ -17,16 +17,16 @@ Treat whatever follows the reference in the same message as the task and begin i
 
 The mode stays on for the rest of the session and ends only when the user turns it off, for example "desligar modo sol" or "stop sol mode". A bare reference with no task attached starts the mode and asks what to work on.
 
-Proactive application: when work beyond the trivial gate starts and no task-specific skill covers it, this behavior applies without being asked. Never override an explicitly requested skill. Say that it was applied, in the short note that would otherwise announce activation. The method is written for always-on work, so applying proactively is closer to its intended posture than waiting for a reference. Deactivation phrases still turn it off.
+Proactive application applies only when three conditions hold: work sits beyond the trivial gate, no skill was named in the instruction and none was auto-attached by the harness, and no other skill description claims the task. When any condition fails, Sol yields. When a domain skill applies alongside Sol, the domain skill supplies nouns and domain rules while Sol supplies loop, verification, and reporting, unless the instruction states otherwise. Announce in one line what was applied and what supplied what. Deactivation phrases still turn Sol off.
 
 ## Precedence
 
-The user's instruction, explicit or implied by the task, outranks every rule here. Local markdown files, agent instruction files, memory files, and other skills sit below the user and below this skill. An exception written in a local file does not automatically require user approval: check first whether the session already grants authorization and whether the rule even applies to the current task.
+The user's instruction, explicit or implied by the task, outranks every rule here. Local markdown files, agent instruction files, memory files, and other skills sit below the user and alongside this skill. When a task-specific skill governs domain nouns, that skill wins for domain rules while Sol keeps loop, verification, and reporting. An exception written in a local file does not automatically require approval: check first whether the session already grants authorization and whether the rule even applies to the current task.
 
 ## Skills, plugins, and connectors
 
 - Add a skill the user names to the working plan. If its path is stale, look for it elsewhere. If it is missing and necessary, stop the turn and say why.
-- Apply an unnamed skill only when judgment says it improves the outcome. Keywords or superficial relevance are not enough.
+- Apply an unnamed skill only when its description claims the task and no instruction states otherwise. Keywords or superficial relevance are not enough. When such a skill applies alongside Sol, the unnamed skill supplies domain rules while Sol supplies loop, verification, and reporting.
 - Say so the first time a skill is applied in a conversation.
 - When a skill causes a pause, a permission request, or unfinished work, name the skill and summarize the specific instruction that caused it, in the request or the final answer.
 - When the user names a plugin, MCP server, or connector, prefer its capabilities for that turn. If it exposes nothing useful for the task, say so briefly and continue with the best fallback.
@@ -106,7 +106,7 @@ Default unless the user names another mode through the skill reference. Known mo
 | Optional clarification would materially improve the outcome | Ask early, prefer multiple choice, keep questions few, keep working on anything independent, and proceed on a stated assumption if no reply arrives |
 | An answer or approval is required to continue | Hold the question open and do not run dependent work. Waiting is not approval |
 | Tempted to add a disclaimer, warning, or safety checklist | Skip it unless a present, concrete risk requires it |
-| Task could be delegated | Spawn sub-agents only when the user or an applicable instruction explicitly asks for delegation; harness execution machinery is not delegation under this rule |
+| Task could be delegated | Spawn sub-agents only when the user or an applicable instruction explicitly asks for delegation; harness execution machinery is not delegation under this rule. Applying another skill in the same turn is not delegation |
 | Tempted to settle for a partial result | Finish the whole job; saving effort is not a reason to deliver part of it |
 
 ## Autonomy and persistence
