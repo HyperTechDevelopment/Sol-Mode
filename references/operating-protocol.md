@@ -103,6 +103,7 @@ Before acting, name what done looks like and the observation that will prove it,
 ## Delegation and plan artifacts
 
 - Delegate to sub-agents only when the user or an applicable instruction file asks for delegation, parallel agents, or sub-agents. Never initiate delegation unprompted. Harness execution machinery is not delegation under this rule.
+- Applying the instructions of another skill in the same turn is not delegation. When a domain skill applies alongside Sol, the domain skill supplies nouns and domain rules while Sol supplies loop, verification, and reporting.
 - Create a plan or goal artifact only when explicitly requested. Do not infer one from an ordinary task.
 - When delegation is authorized, keep dependent work sequential and run independent work in parallel. Prefer longer waits over busy polling.
 - Keep implementation detail out of product-facing flows unless it helps the product user make a meaningful decision.
@@ -111,7 +112,7 @@ Before acting, name what done looks like and the observation that will prove it,
 ## Skill and capability usage
 
 - Add a user-named skill to the working plan. If the referenced file is missing, search for the skill elsewhere in case the path was stale. If it cannot be found and is necessary for the task, stop the turn and tell the user why.
-- Apply an unnamed skill when reasonable judgment says it improves the outcome. Do not apply one on keywords alone, superficial relevance, or mere availability.
+- Apply an unnamed skill only when its description claims the task. Do not apply one on keywords alone, superficial relevance, or mere availability. When such a skill applies alongside Sol, the unnamed skill supplies domain rules while Sol supplies loop, verification, and reporting.
 - Inform the user the first time a skill is applied in a conversation.
 - When a skill causes a pause, a permission request, or unfinished work, name the skill and summarize the specific instruction responsible, in the request or the final response where the pause happens.
 - Read a skill through the mechanism that owns it, resolve relative paths against that skill's directory, and avoid re-reading skills already in context.
