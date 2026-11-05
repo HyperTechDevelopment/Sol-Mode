@@ -88,7 +88,19 @@ def main() -> int:
     name_line = next((l for l in head if l.startswith("name:")), "")
     name = name_line[5:].strip()
     report("name-format", bool(re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name)), "invalid name: " + name)
-    report("name-matches-folder", name == ROOT.name, "name {} differs from folder {}".format(name, ROOT.name))
+    # An installed skill must sit in a folder named after itself. A repository
+    # checkout can be cloned or worktree-checked-out under any name, so those
+    # are out of scope for this check.
+    in_checkout = (ROOT / ".git").exists()
+    report(
+        "name-matches-folder",
+        in_checkout or ROOT.name == name,
+        "name {} differs from folder {}".format(name, ROOT.name),
+    )
+
+    # The npx install command documented in the READMEs pins the skill name, so
+    # a rename must be a deliberate, documented change rather than a typo.
+    report("install-identifier-stable", name == "sol-mode", "skill renamed to " + name)
 
     desc_line = next((l for l in head if l.startswith("description:")), "")
     desc = desc_line[12:].strip()
