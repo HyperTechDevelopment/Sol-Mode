@@ -45,6 +45,28 @@ sol-mode off             deactivate for the rest of the session
 
 It also applies on its own when work beyond the trivial gate starts and no task-specific skill covers it. The request that follows the reference in the same message is the task; there is no separate activation step.
 
+## Install via npx
+
+Requires Node.js 22.20 or later. From any project directory:
+
+```
+npx skills add HyperTechDevelopment/Sol-Mode -g
+```
+
+The installer shows the skill and the agents it detects on your machine; pick
+where `sol-mode` should be available. Omit `-g` to install into the current
+project only (this records a `skills-lock.json` so the team can restore the
+same setup later). To skip the prompts:
+
+```
+npx skills add HyperTechDevelopment/Sol-Mode --skill sol-mode -a claude-code -g
+```
+
+Repeat `-a` for each agent, for example `-a claude-code -a codex -a gemini-cli`.
+The full list of supported agents and their skill directories lives in the
+[skills CLI agent reference](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+The skill is also listed on [skills.sh](https://skills.sh/hypertechdevelopment/sol-mode).
+
 ## Contents
 
 ```

@@ -42,6 +42,28 @@ sol-mode off               desativa pelo resto da sessão
 
 Ele também entra sozinho quando começa um trabalho além do portão trivial e nenhuma skill específica cobre o caso. O pedido que vem na mesma mensagem já é a tarefa — sem etapa separada de ativação, sem "posso começar?".
 
+## Instalar via npx
+
+Precisa de Node.js 22.20 ou superior. De qualquer diretório de projeto:
+
+```
+npx skills add HyperTechDevelopment/Sol-Mode -g
+```
+
+O instalador mostra a skill e os agentes que ele detecta na sua máquina; você
+escolhe onde o `sol-mode` fica disponível. Sem o `-g`, a instalação vale só
+para o projeto atual (isso grava um `skills-lock.json` para o time restaurar a
+mesma configuração depois). Para pular as perguntas:
+
+```
+npx skills add HyperTechDevelopment/Sol-Mode --skill sol-mode -a claude-code -g
+```
+
+Repita o `-a` para cada agente, por exemplo `-a claude-code -a codex -a gemini-cli`.
+A lista completa de agentes suportados e seus diretórios de skills está na
+[referência de agentes do skills CLI](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+A skill também aparece no [skills.sh](https://skills.sh/hypertechdevelopment/sol-mode).
+
 ## Conteúdo
 
 ```
